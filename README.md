@@ -20,15 +20,26 @@ This repository contains the specialized AI Agent Stack for **Short-Term Rental 
 
 ## **Getting Started**
 
-1.  **Explore the Agents**: Browse the `agents/` directory to see the available specialized agents, starting with the **Guest Concierge Agent**.
-2.  **Review Core Utilities**: Check `core/` for the STR/MTR PMS interface and Claude context engine.
-3.  **Run Tests**: Verify the repository structure and logic:
+The fastest way to get started is using the **Boostly Connect CLI**:
+
+1.  **Initialize the Stack**:
     ```bash
-    pip install -r requirements.txt
-    pytest
+    python boostly_connect.py init --type str-mtr
     ```
-4.  **Read the Docs**: Check the `docs/` directory for implementation guides and the STR/MTR Agent Buildout Plan.
-5.  **Ask AI**: Use the provided prompts to implement these agents in your own hospitality stack.
+2.  **List Available Agents**:
+    ```bash
+    python boostly_connect.py list
+    ```
+3.  **Run an Agent**:
+    ```bash
+    python boostly_connect.py run guest-concierge
+    ```
+
+You can also explore the `agents/` directory, review core utilities in `core/`, and run tests manually:
+```bash
+pip install -r requirements.txt
+pytest
+```
 
 ## **Automation & Workflows**
 
