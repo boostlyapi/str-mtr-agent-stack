@@ -1,0 +1,6 @@
+{
+  "guest_id": "guest-demo-001",
+  "guest_name": "Jane Smith",
+  "guest_type": "family",
+  "preferences": ["walkable restaurants", "pet-friendly activities", "sea views"]
+}

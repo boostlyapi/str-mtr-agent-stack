@@ -4,40 +4,42 @@ Specialized abstraction layer for STR/MTR-focused PMS platforms (Hostaway, Guest
 """
 
 class STRMTRPMSInterface:
-    def __init__(self, pms_name, api_key):
-        self.pms_name = pms_name
-        self.api_key = api_key
-
-    def get_property_details(self, property_id):
-        """
-        Fetch granular property details including unique amenities, house rules, and local context.
-        """
-        # Placeholder for API call logic
-        return {
-            "id": property_id,
-            "name": "Seaside Cottage",
-            "amenities": ["Hot tub", "Ocean view", "EV charger"],
-            "house_rules": "No smoking, no parties, quiet hours after 10 PM.",
-            "local_context": "Best coffee at 'The Daily Grind' (2 min walk)."
-        }
-
-    def get_bookings(self, start_date, end_date):
-        """
-        Fetch bookings with a focus on guest-specific details and personalization opportunities.
-        """
-        # Placeholder for API call logic
-        return []
-
-    def update_cleaning_status(self, property_id, status):
-        """
-        Update cleaning status for individual units.
-        """
-        # Placeholder for API call logic
+    """Base interface for STR/MTR PMS integrations."""
+    def list_reservations(self):
+        pass
+    def get_guest_preferences(self, guest_id):
+        pass
+    def get_property_calendar(self, property_id):
+        pass
+    def get_property_amenities(self, property_id):
+        pass
+    def get_portfolio_summary(self):
         pass
 
-    def get_guest_messages(self, booking_id):
-        """
-        Fetch guest communication history for personalized AI responses.
-        """
-        # Placeholder for API call logic
-        return []
+class MockSTRMTRPMS(STRMTRPMSInterface):
+    """Safe mock PMS implementation for STR/MTR testing."""
+    
+    def list_reservations(self):
+        return [
+            {
+                "reservation_id": "str-demo-001",
+                "guest_name": "Jane Smith",
+                "property_name": "Seaside Cottage",
+                "check_in": "2026-05-10",
+                "check_out": "2026-05-14",
+                "stay_type": "short_term",
+                "status": "confirmed"
+            }
+        ]
+
+    def get_guest_preferences(self, guest_id):
+        return ["walkable restaurants", "pet-friendly activities", "sea views"]
+
+    def get_property_calendar(self, property_id):
+        return {"property_id": property_id, "available_dates": ["2026-05-15", "2026-05-16"]}
+
+    def get_property_amenities(self, property_id):
+        return ["Wi-Fi", "parking", "sea view", "pet-friendly"]
+
+    def get_portfolio_summary(self):
+        return {"total_properties": 5, "active_bookings": 12, "occupancy_rate": "82%"}

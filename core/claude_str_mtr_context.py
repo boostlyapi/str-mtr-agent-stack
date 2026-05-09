@@ -3,20 +3,15 @@ Boostly Connect: Claude STR/MTR Context Engine
 Optimized context injection for property-specific data in Claude.
 """
 
-class ClaudeSTRMTRContext:
-    def __init__(self, property_data):
-        self.property_data = property_data
+def build_str_mtr_context(operator_profile):
+    """Builds a base context string for an STR/MTR operator."""
+    return f"Operator: {operator_profile.get('name', 'Boostly Host')}. Focus: {operator_profile.get('focus', 'Direct Bookings')}."
 
-    def generate_system_prompt(self, agent_type):
-        """
-        Generate a highly personalized system prompt for Claude based on property-specific data.
-        """
-        base_prompt = f"You are the {agent_type} for {self.property_data['name']}. "
-        context = f"Property Context: {self.property_data['house_rules']} {self.property_data['local_context']}"
-        return base_prompt + context
+def inject_amenity_context(base_context, amenities):
+    """Injects property amenities into the context."""
+    amenity_str = ", ".join(amenities) if amenities else "standard amenities"
+    return f"{base_context} Property Amenities: {amenity_str}."
 
-    def inject_guest_context(self, guest_data):
-        """
-        Inject guest-specific preferences and history into the conversation context.
-        """
-        return f"Guest Context: {guest_data.get('preferences', 'No specific preferences recorded.')}"
+def generate_local_guide_prompt(property_name, location, guest_type):
+    """Generates a prompt for creating a local guide."""
+    return f"Create a local guide for {property_name} in {location} tailored for a {guest_type}."

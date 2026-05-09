@@ -1,0 +1,8 @@
+{
+  "property_id": "property-demo-001",
+  "property_name": "Seaside Cottage",
+  "location": "Whitby",
+  "amenities": ["Wi-Fi", "parking", "sea view", "pet-friendly"],
+  "house_rules": ["No smoking", "Quiet hours after 10pm"],
+  "upsells": ["late checkout", "welcome hamper", "local experience guide"]
+}

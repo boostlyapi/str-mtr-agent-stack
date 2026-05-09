@@ -1,0 +1,11 @@
+[
+  {
+    "reservation_id": "str-demo-001",
+    "guest_name": "Jane Smith",
+    "property_name": "Seaside Cottage",
+    "check_in": "2026-05-10",
+    "check_out": "2026-05-14",
+    "stay_type": "short_term",
+    "status": "confirmed"
+  }
+]

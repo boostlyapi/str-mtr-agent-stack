@@ -19,9 +19,20 @@ This repository contains the specialized AI Agent Stack for **Short-Term Rental 
 *   **Claude Context Engine**: Optimized context injection for property-specific data (house rules, local guides, amenities).
 
 ## **Getting Started**
-1.  **Explore the Agents**: Browse the `agents/` directory to see the available specialized agents.
-2.  **Read the Docs**: Check the `docs/` directory for implementation guides and the STR/MTR Agent Buildout Plan.
-3.  **Ask AI**: Use the provided prompts to implement these agents in your own hospitality stack.
+
+1.  **Explore the Agents**: Browse the `agents/` directory to see the available specialized agents, starting with the **Guest Concierge Agent**.
+2.  **Review Core Utilities**: Check `core/` for the STR/MTR PMS interface and Claude context engine.
+3.  **Run Tests**: Verify the repository structure and logic:
+    ```bash
+    pip install -r requirements.txt
+    pytest
+    ```
+4.  **Read the Docs**: Check the `docs/` directory for implementation guides and the STR/MTR Agent Buildout Plan.
+5.  **Ask AI**: Use the provided prompts to implement these agents in your own hospitality stack.
+
+## **Automation & Workflows**
+
+Starter GitHub Actions workflows are provided in `docs/workflows/`. Due to repository permissions, these must be manually added to the `.github/workflows/` directory to enable automated testing and reporting.
 
 ---
 Built by **Boostly** | [boostly.co.uk](https://boostly.co.uk)
